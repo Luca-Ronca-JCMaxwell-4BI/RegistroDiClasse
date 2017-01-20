@@ -1,6 +1,6 @@
 #<b>Registro elettronico</b>
 ##<b>Descrizione programma</b>
-Il registro elettronico serve per memorizzare i voti e le medie di ogni singolo studente.</br>
+Il registro elettronico serve per visualizzare i voti e le medie di ogni singolo studente.</br>
 Ci sono due tipologie di utenti:
 gli studenti possono vedere solo i propri voti, le loro medie e lo stato (rischio bocciatura/promosso), mentre i professori possono consultare le votazioni di tutta la classe per studente e per materia, possono vedere le medie di tutti gli studenti e il loro relativo stato ed inoltre possono togliere o aggiungere voti della loro materia.</br>
 Ogni utente per accedere al registro elettronico ha bisogno di un account.</p>
