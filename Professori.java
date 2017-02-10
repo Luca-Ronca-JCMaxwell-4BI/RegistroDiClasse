@@ -47,5 +47,5 @@ public class Professori {
     public String getMateria(){
         return materia;
     }
-    //metodi
+    //metodi aggiungi voto togli voto
 }

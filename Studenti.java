@@ -61,4 +61,46 @@ public class Studenti {
         return password;
     }
     //metodi
+    public double calcolaMediaMatematica(){
+        int i;
+        double s = 0.;
+        for(i=0; i<votiMatematica; i++)
+        {
+            s += matematica[i];
+        }          
+        mediaMatematica = s / votiMatematica;
+        return mediaMatematica;
+    }
+    public double calcolaMediaItaliano(){
+        int i;
+        double s = 0.;
+        for(i=0; i<votiItaliano; i++)
+        {
+            s += italiano[i];
+        } 
+        mediaItaliano = s / votiItaliano;
+        return mediaItaliano;
+    }
+    public double calcolaMediaInformatica(){
+        int i;
+        double s = 0.;
+        for(i=0; i<votiInformatica; i++)
+        {
+            s += matematica[i]; 
+        }           
+        mediaInformatica = s / votiInformatica;
+        return mediaInformatica;
+    }
+    public String calcolaStato(){
+        mediaTot = (mediaMatematica + mediaItaliano + mediaInformatica) / 3;
+        if(mediaTot >= 6.0)
+        {
+            statoStudente = "PROMOSSO";
+        }   
+        else
+        {
+            statoStudente = "RISCHIO DI BOCCIATURA";
+        }    
+        return statoStudente;
+    }
 }
