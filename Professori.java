@@ -1,8 +1,10 @@
 package registroelettronico;
-import java.util.Scanner;
+import java.util.Scanner; /*Importa la classe Scanner la quale è nella cartella UTIL che è dentro la cartella JAVA.  
+                          Scanner : classe predefinita per prendere input dagli utenti*/
 
 public class Professori { 
-    private String nome;
+    //Attributi della classe professori
+    private String nome; 
     private String cognome;
     private String nomeUtente;
     private String password;
