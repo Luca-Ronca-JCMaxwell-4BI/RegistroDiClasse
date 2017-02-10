@@ -1,7 +1,8 @@
 package registroelettronico;
-import java.util.Scanner;
+import java.util.Scanner; //Importa la classe scanner per inserire input da tastiera
 
 public class Studenti {
+    //Attributi della classe Studenti
     private String nome;
     private String cognome;
     private String nomeUtente;
@@ -61,7 +62,7 @@ public class Studenti {
         return password;
     }
     //metodi
-    public double calcolaMediaMatematica(){
+    public double calcolaMediaMatematica(){  //Metodo per calcolare la media di matematica
         int i;
         double s = 0.;
         for(i=0; i<votiMatematica; i++)
@@ -71,7 +72,7 @@ public class Studenti {
         mediaMatematica = s / votiMatematica;
         return mediaMatematica;
     }
-    public double calcolaMediaItaliano(){
+    public double calcolaMediaItaliano(){ //Metodo per calcolare la media di italiano
         int i;
         double s = 0.;
         for(i=0; i<votiItaliano; i++)
@@ -81,7 +82,7 @@ public class Studenti {
         mediaItaliano = s / votiItaliano;
         return mediaItaliano;
     }
-    public double calcolaMediaInformatica(){
+    public double calcolaMediaInformatica(){ //Metodo per calcolare la media di informatica
         int i;
         double s = 0.;
         for(i=0; i<votiInformatica; i++)
@@ -91,7 +92,7 @@ public class Studenti {
         mediaInformatica = s / votiInformatica;
         return mediaInformatica;
     }
-    public String calcolaStato(){
+    public String calcolaStato(){ //Metodo per calcolare se uno studente è promosso o a rischio bocciatura
         mediaTot = (mediaMatematica + mediaItaliano + mediaInformatica) / 3;
         if(mediaTot >= 6.0)
         {
