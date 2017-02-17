@@ -207,7 +207,6 @@ public class RegistroElettronico {
         }
         while(op != 3); 
     }
-
     public static void main(String[] args) {
         RegistroElettronico RE;
         Admin admin;
