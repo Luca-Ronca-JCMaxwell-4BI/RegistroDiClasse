@@ -93,3 +93,126 @@ public class RegistroElettronico {
         }
         while(op != 3); 
     }
+    public void homeAdmin(Admin admin){
+        int op;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("-------------------------");
+            System.out.println("Scegliere un opzione");
+            System.out.println("0 - Cambia password");
+            System.out.println("1 - Aggiungi professore");
+            System.out.println("2 - Elimina professore");
+            System.out.println("3 - Aggiungi studente");
+            System.out.println("4 - Elimina studente");
+            System.out.println("5 - Esci");
+            op = sc.nextInt();            
+            switch(op)
+            {
+                case 0:
+                    admin.cambiaPassword();
+                    break;
+                case 1:
+                    admin.aggiungiProfessore();
+                    break;
+                case 2:
+                    admin.eliminaProfessore();
+                    break;
+                case 3:
+                    admin.aggiungiStudente();
+                    break;
+                case 4:
+                    admin.eliminaStudente();
+                    break;
+                case 5:
+                    System.out.println("Uscita in corso ...");
+                    System.out.println("-------------------------");
+                    break;
+                default:
+                    System.out.println("Opzione non valida");
+                    break;
+            }
+        }
+        while(op != 5); 
+    }
+    public void homeProfessori(Admin admin, int pos){
+        int op;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("-------------------------");
+            System.out.println("Scegliere un opzione");
+            System.out.println("0 - Cambia password");
+            System.out.println("1 - Aggiungi voto");
+            System.out.println("2 - Elimina voto");
+            System.out.println("3 - Esci");
+            op = sc.nextInt();
+            switch(op)
+            {
+                case 0:
+                    admin.prof[pos].cambiaPassword();
+                    break;
+                case 1:
+                    admin.prof[pos].aggiungiVoto(admin);
+                    break;
+                case 2:
+                    admin.prof[pos].eliminaVoto(admin);
+                    break;
+                case 3:
+                    System.out.println("Uscita in corso ...");
+                    System.out.println("-------------------------");
+                    break;
+                default:
+                    System.out.println("Opzione non valida");
+                    break;
+            }
+        }
+        while(op != 3); 
+    }
+    public void homeStudenti(Admin admin, int pos){
+        int op;
+        Scanner sc = new Scanner(System.in);
+        do
+        {
+            System.out.println("-------------------------");
+            System.out.println("Scegliere un opzione");
+            System.out.println("0 - Cambia password");
+            System.out.println("1 - Calcola medie");
+            System.out.println("2 - Calcola stato");
+            System.out.println("3 - Esci");
+            op = sc.nextInt();
+            switch(op)
+            {
+                case 0:
+                    admin.classe[pos].cambiaPassword();
+                    break;
+                case 1:
+                    double mediaTot = (admin.classe[pos].mediaMatematica + admin.classe[pos].mediaItaliano + admin.classe[pos].mediaInformatica) / 3;
+                    System.out.println("Media matematica: " + admin.classe[pos].calcolaMediaMatematica());
+                    System.out.println("Media italiano: " + admin.classe[pos].calcolaMediaItaliano());
+                    System.out.println("Media informatica: " + admin.classe[pos].calcolaMediaInformatica());
+                    System.out.println("Media totale: " + mediaTot);
+                    break;
+                case 2:
+                    admin.classe[pos].calcolaStato();
+                    break;
+                case 3:
+                    System.out.println("Uscita in corso ...");
+                    System.out.println("-------------------------");
+                    break;
+                default:
+                    System.out.println("Opzione non valida");
+                    break;
+            }
+        }
+        while(op != 3); 
+    }
+
+    public static void main(String[] args) {
+        RegistroElettronico RE;
+        Admin admin;
+        RE = new RegistroElettronico("1.0");
+        admin = new Admin("admin");
+        RE.accesso(admin);
+    }
+}
