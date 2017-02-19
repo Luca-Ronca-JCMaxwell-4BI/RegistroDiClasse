@@ -16,7 +16,7 @@ public class RegistroElettronico {
     }
     //Metodi
     public void accesso(Admin admin){
-        int op, i, pos;
+        int op, i, pos, t;
         String nu, pw;
         Scanner sc = new Scanner(System.in);
         System.out.println("REGISTRO ELETTRONICO");
@@ -24,6 +24,7 @@ public class RegistroElettronico {
         System.out.println("-------------------------");
         do
         {
+            t = 0;
             System.out.println("Inserire il tipo dell'utente");
             System.out.println("0 - Admin");
             System.out.println("1 - Professore");
@@ -50,18 +51,17 @@ public class RegistroElettronico {
                     nu = sc.next();
                     System.out.println("Inserire password");
                     pw = sc.next();
-                    for(i=0; i<admin.getNProfessori(); i++)
+                    for(i=0; i<admin.nProfessori; i++)
                     {
                         if(admin.prof[i].getNomeUtente().equals(nu) && admin.prof[i].getPassword().equals(pw))
                         {
-                            System.out.println("Accesso in corso");
-                            pos = i;
-                            homeProfessori(admin, pos);
+                            homeProfessori(admin, i);
+                            t = 1;
                         }
-                        else
-                        {
-                            System.out.println("Utente inesistente");
-                        }
+                    }
+                    if(t == 0)
+                    {
+                        System.out.println("Nome utente o password errati");
                     }
                     break;
                 case 2:
@@ -69,18 +69,17 @@ public class RegistroElettronico {
                     nu = sc.next();
                     System.out.println("Inserire password");
                     pw = sc.next();
-                    for(i=0; i<admin.getNStudenti(); i++)
+                    for(i=0; i<admin.nStudenti; i++)
                     {
                         if(admin.classe[i].getNomeUtente().equals(nu) && admin.classe[i].getPassword().equals(pw))
                         {
-                            System.out.println("Accesso in corso");
-                            pos = i;
-                            homeStudenti(admin, pos);
+                            homeStudenti(admin, i);
+                            t = 1;
                         }
-                        else
-                        {
-                            System.out.println("Utente inesistente");
-                        }
+                    }
+                    if(t == 0)
+                    {
+                        System.out.println("Nome utente o password errati");
                     }
                     break;
                 case 3:
