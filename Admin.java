@@ -131,8 +131,7 @@ public class Admin{
         }
         if (trovato == true)
         {
-            classe[pos] = null;
-            nStudenti --;
+            classe[pos] = null; 
             for(i=pos; i<nStudenti-1; i++)
             {
                 for(j=i+1; j<nStudenti; j++)
@@ -140,6 +139,7 @@ public class Admin{
                     classe[i] = classe[j];
                 }
             }
+            nStudenti --;
             ordinaClasse();
             System.out.println("Studente eliminato");
         }
@@ -166,7 +166,6 @@ public class Admin{
         if (trovato == true)
         {
             prof[pos] = null;
-            nProfessori --;
             for(i=pos; i<nProfessori-1; i++)
             {
                 for(j=i+1; j<nProfessori; j++)
@@ -174,6 +173,7 @@ public class Admin{
                     prof[i] = prof[j];
                 }
             }
+            nProfessori --;
             System.out.println("Professore eliminato");
         }
         else
