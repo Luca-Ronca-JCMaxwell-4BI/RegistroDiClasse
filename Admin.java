@@ -114,4 +114,87 @@ public class Admin{
             System.out.println("Ci sono abbastanza professori");
         }
     }
+  public void eliminaStudente(){
+        boolean trovato = false;
+        int i, j, pos = -1;
+        String cognome;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Inserire il cognome dello studente da eliminare");
+        cognome = sc.next();
+        for(i=0; i<nStudenti;  i++)
+        {
+           if(classe[i].getCognome().equals(cognome)) 
+           {
+               trovato = true;
+               pos = i;
+           }
+        }
+        if (trovato == true)
+        {
+            classe[pos] = null;
+            for(i=pos; i<nStudenti-1; i++)
+            {
+                for(j=i+1; j<nStudenti; j++)
+                {
+                    classe[i] = classe[j];
+                }
+            }
+            nStudenti --;
+            ordinaClasse();
+            System.out.println("Studente eliminato");
+        }
+        else
+        {
+            System.out.println("Studente inesistente");
+        }
+    }
+    public void eliminaProfessore(){
+        boolean trovato = false;
+        int i, j, pos = -1;
+        String cognome;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Inserire il cognome del professore da eliminare");
+        cognome = sc.next();
+        for(i=0; i<nProfessori;  i++)
+        {
+           if(prof[i].getCognome().equals(cognome)) 
+           {
+               trovato = true;
+               pos = i;
+           }
+        }
+        if (trovato == true)
+        {
+            prof[pos] = null;
+            nProfessori --;
+            for(i=pos; i<nProfessori-1; i++)
+            {
+                for(j=i+1; j<nProfessori; j++)
+                {
+                    prof[i] = prof[j];
+                }
+            }
+            System.out.println("Professore eliminato");
+        }
+        else
+        {
+            System.out.println("Professore inesistente");
+        }
+    }
+    public void ordinaClasse(){
+        int i, j;
+        Studenti scambio;
+        for(i=0; i<nStudenti-1; i++)
+        {
+            for(j=i+1; j<nStudenti; j++)
+            {
+                if(classe[i].getCognome().compareTo(classe[j].getCognome()) > 0)
+                {
+                    scambio = classe[i];
+                    classe[i] = classe[j];
+                    classe[j] = scambio;
+                }
+            }
+        }
+    }
 }
