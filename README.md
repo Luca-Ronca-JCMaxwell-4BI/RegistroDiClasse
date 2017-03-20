@@ -12,10 +12,7 @@ Il programma non necessita di installazione.
 ###Versione 1-2:
 In tutti i menù ad ogni opzione è attribuito un numero, per selezionare una opzione è necessario premere il numero corrispondente alla opzione desiderata.
 Appena aperto il programma verrà visualizzato un menù con le voci: “Registrati” e “Accedi”.</br>
-<b>1.Registrazione:</b> selezionare la voce “Registrati” per registrarsi al registro elettronico.</br>
-Selezionare il tipo di utente (Professore, Studente).</br>
-<i>1.a. Studente:</i> inserire il proprio username (consigliato nome.cognome) e premere invio, poi inserire una password (min 8 caratteri) e premere invio.</br>
-<i>1.b. Professore:</i> inserire il proprio username (consigliato nome.cognome)e premere invio, inserire una password (min 8 caratteri) e premere invio, selezionare la propria materia di insegnamento.</br>
+
 <b>2. Accesso:</b> selezionare la voce “Accedi” per accedere al registro elettronico.</br>
 Inserire il proprio username e la propria password.</br>
 <b>3.Home:</b> qui verrà visualizzato un menù in cui è possibile scegliere un opzione.</br>
