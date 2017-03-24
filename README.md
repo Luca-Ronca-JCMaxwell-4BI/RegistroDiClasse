@@ -11,7 +11,7 @@ Il programma non necessita di installazione.
 ##<b>Manuale d’uso</b>
 ###Versione 1-2:
 In tutti i menù ad ogni opzione è attribuito un numero, per selezionare una opzione è necessario premere il numero corrispondente alla opzione desiderata.
-Appena aperto il programma verrà visualizzato un menù con le voci: “Registrati” e “Accedi”.</br>
+Appena aperto il programma verrà visualizzato un menù con la voce: “Accedi”.</br>
 
 <b>2. Accesso:</b> selezionare la voce “Accedi” per accedere al registro elettronico.</br>
 Inserire il proprio username e la propria password.</br>
