@@ -1,4 +1,5 @@
 package registroelettronico;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RegistroElettronico {
@@ -15,23 +16,21 @@ public class RegistroElettronico {
         return versione;
     }
     //Metodi
-    public void accesso(Admin admin){
-        int op, i, pos, t;
-        String nu, pw;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("REGISTRO ELETTRONICO");
-        System.out.println("ver " + this.getVersione());
-        System.out.println("-------------------------");
+    public void accesso(Admin admin) throws IOException{
+        int opa, i, t;
+        String nu, pw, nome, pass;
+        Scanner sc = new Scanner(System.in);        
         do
         {
             t = 0;
+            System.out.println("-------------------------");
             System.out.println("Inserire il tipo dell'utente");
             System.out.println("0 - Admin");
             System.out.println("1 - Professore");
             System.out.println("2 - Studente");
             System.out.println("3 - Esci");
-            op = sc.nextInt();
-            switch(op)
+            opa = sc.nextInt();
+            switch(opa)
             {
                 case 0:
                     System.out.println("Inserire password");
@@ -43,7 +42,7 @@ public class RegistroElettronico {
                     }
                     else
                     {
-                        System.out.println("Utente inesistente");
+                        System.out.println("Password errata");
                     }
                     break;
                 case 1:
@@ -83,17 +82,20 @@ public class RegistroElettronico {
                     }
                     break;
                 case 3:
+                    System.out.println("Salvataggio in corso ...");
+                    admin.salvaRegistro(admin);
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
+                    break;
                 default:
                     System.out.println("Tipologia di utente inesistente");
                     break;
             }
         }
-        while(op != 3); 
+        while(opa != 3); 
     }
     public void homeAdmin(Admin admin){
-        int op;
+        int opha;
         Scanner sc = new Scanner(System.in);
         do
         {
@@ -105,8 +107,8 @@ public class RegistroElettronico {
             System.out.println("3 - Aggiungi studente");
             System.out.println("4 - Elimina studente");
             System.out.println("5 - Esci");
-            op = sc.nextInt();            
-            switch(op)
+            opha = sc.nextInt();            
+            switch(opha)
             {
                 case 0:
                     admin.cambiaPassword();
@@ -127,15 +129,21 @@ public class RegistroElettronico {
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
+                case 6:
+                    admin.visClasse();
+                    break;
+                case 7:
+                    admin.visProf();
+                    break;
                 default:
                     System.out.println("Opzione non valida");
                     break;
             }
         }
-        while(op != 5); 
+        while(opha != 5); 
     }
     public void homeProfessori(Admin admin, int pos){
-        int op;
+        int ophp;
         Scanner sc = new Scanner(System.in);
         do
         {
@@ -145,8 +153,8 @@ public class RegistroElettronico {
             System.out.println("1 - Aggiungi voto");
             System.out.println("2 - Elimina voto");
             System.out.println("3 - Esci");
-            op = sc.nextInt();
-            switch(op)
+            ophp = sc.nextInt();
+            switch(ophp)
             {
                 case 0:
                     admin.prof[pos].cambiaPassword();
@@ -155,9 +163,6 @@ public class RegistroElettronico {
                     admin.prof[pos].aggiungiVoto(admin);
                     break;
                 case 2:
-                    admin.prof[pos].eliminaVoto(admin);
-                    break;
-                case 3:
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
@@ -166,36 +171,46 @@ public class RegistroElettronico {
                     break;
             }
         }
-        while(op != 3); 
+        while(ophp != 3); 
     }
     public void homeStudenti(Admin admin, int pos){
-        int op;
+        int ophs;
         Scanner sc = new Scanner(System.in);
         do
         {
             System.out.println("-------------------------");
             System.out.println("Scegliere un opzione");
             System.out.println("0 - Cambia password");
-            System.out.println("1 - Calcola medie");
-            System.out.println("2 - Calcola stato");
-            System.out.println("3 - Esci");
-            op = sc.nextInt();
-            switch(op)
+            System.out.println("1 - Visualizza voti");
+            System.out.println("2 - Calcola medie");
+            System.out.println("3 - Calcola stato");
+            System.out.println("4 - Esci");
+            ophs = sc.nextInt();
+            switch(ophs)
             {
                 case 0:
                     admin.classe[pos].cambiaPassword();
                     break;
                 case 1:
-                    double mediaTot = (admin.classe[pos].mediaMatematica + admin.classe[pos].mediaItaliano + admin.classe[pos].mediaInformatica) / 3;
-                    System.out.println("Media matematica: " + admin.classe[pos].calcolaMediaMatematica());
-                    System.out.println("Media italiano: " + admin.classe[pos].calcolaMediaItaliano());
-                    System.out.println("Media informatica: " + admin.classe[pos].calcolaMediaInformatica());
-                    System.out.println("Media totale: " + mediaTot);
+                    admin.classe[pos].visualizzaVoti();
                     break;
                 case 2:
-                    admin.classe[pos].calcolaStato();
+                    double mediaTot = (admin.classe[pos].mediaMatematica + admin.classe[pos].mediaItaliano + admin.classe[pos].mediaInformatica) / 3;
+                    System.out.println("Media italiano: " + admin.classe[pos].calcolaMediaItaliano());
+                    System.out.println("Media storia: " + admin.classe[pos].calcolaMediaStoria());
+                    System.out.println("Media inglese: " + admin.classe[pos].calcolaMediaInglese());
+                    System.out.println("Media matematica: " + admin.classe[pos].calcolaMediaMatematica());
+                    System.out.println("Media sistemi e reti: " + admin.classe[pos].calcolaMediaSistemiReti());
+                    System.out.println("Media TPSIT: " + admin.classe[pos].calcolaMediaTPSIT());
+                    System.out.println("Media informatica: " + admin.classe[pos].calcolaMediaInformatica());
+                    System.out.println("Media telecomunicazioni: " + admin.classe[pos].calcolaMediaTelecomunicazioni());
+                    System.out.println("Media educazione fisica: " + admin.classe[pos].calcolaMediaEdFisica());
+                    System.out.println("Media totale: " + mediaTot);
                     break;
                 case 3:
+                    System.out.println("Stato studente: " + admin.classe[pos].calcolaStato());
+                    break;
+                case 4:
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
@@ -204,13 +219,18 @@ public class RegistroElettronico {
                     break;
             }
         }
-        while(op != 3); 
+        while(ophs != 4); 
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         RegistroElettronico RE;
         Admin admin;
         RE = new RegistroElettronico("1.0");
         admin = new Admin("admin");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("REGISTRO ELETTRONICO");
+        System.out.println("ver " + RE.getVersione());
+        System.out.println("Caricamento in corso ...");
+        admin = admin.caricaRegistro(admin);
         RE.accesso(admin);
     }
 }
