@@ -140,7 +140,7 @@ public class Admin implements java.io.Serializable{
             System.out.println("Ci sono abbastanza professori");
         }
     }
-    public void eliminaStudente(){
+  public void eliminaStudente(){
         boolean trovato = false;
         int i, j, pos = -1;
         String cognome;

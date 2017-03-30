@@ -28,3 +28,4 @@ Sara Sgreccia</br>
 
 <b>Ringraziamenti</b>
 Ringrazio a nome di tutto il gruppo il professore per il supporto che ci dà ad ogni lezione, e anche il nostro coordinatore che sopporta noi collaboratrici. Grazie anche a Gerry che ci ha spiegato l'input da tastiera.
+
