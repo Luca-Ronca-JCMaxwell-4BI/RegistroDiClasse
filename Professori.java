@@ -1,10 +1,8 @@
 package registroelettronico;
-import java.util.Scanner; /*Importa la classe Scanner la quale è nella cartella UTIL che è dentro la cartella JAVA.  
-                          Scanner : classe predefinita per prendere input dagli utenti*/
+import java.util.Scanner;
 
-public class Professori { 
-    //Attributi della classe professori
-    private String nome; 
+public class Professori implements java.io.Serializable{ 
+    private String nome;
     private String cognome;
     private String nomeUtente;
     private String password;
@@ -49,8 +47,8 @@ public class Professori {
     public String getMateria(){
         return materia;
     }
-    //metodi aggiungi voto togli voto
-  public void cambiaPassword(){
+    //metodi
+    public void cambiaPassword(){
         String p;
         Scanner sc = new Scanner(System.in);
         System.out.println("Inserisci la nuova password");
@@ -68,11 +66,83 @@ public class Professori {
     }
     public void aggiungiVoto(Admin admin){
         int i = 0, iStudente;
-        double voto;
+        float voto;
         visualizzaRegistro(admin);
         Scanner sc = new Scanner(System.in);
         switch(this.getMateria())
         {
+            case "Italiano":
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].italiano[admin.classe[i].votiItaliano] = voto;
+                        admin.classe[i].votiItaliano ++;
+                        admin.classe[i].calcolaMediaItaliano();
+                        admin.classe[i].calcolaStato();             
+                    }
+                    i++;
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
+            case "Storia":
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].storia[admin.classe[i].votiStoria] = voto;
+                        admin.classe[i].votiStoria ++;
+                        admin.classe[i].calcolaMediaStoria();
+                        admin.classe[i].calcolaStato();             
+                    }
+                    i++;
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
+            case "Inglese":
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].inglese[admin.classe[i].votiInglese] = voto;
+                        admin.classe[i].votiInglese ++;
+                        admin.classe[i].calcolaMediaInglese();
+                        admin.classe[i].calcolaStato();             
+                    }
+                    i++;
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
             case "Matematica": 
                 System.out.println("Inserire il numero corrispondente allo studente");
                 iStudente = sc.nextInt();
@@ -83,7 +153,7 @@ public class Professori {
                     {
 
                         System.out.println("Inserisci un voto");
-                        voto = sc.nextDouble();
+                        voto = sc.nextFloat();
                         admin.classe[i].matematica[admin.classe[i].votiMatematica] = voto;
                         admin.classe[i].votiMatematica ++;
                         admin.classe[i].calcolaMediaMatematica();
@@ -96,7 +166,7 @@ public class Professori {
                     System.out.println("Studente inesistente");
                 }
                 break;
-            case "Italiano":
+            case "Sistemi e Reti": 
                 System.out.println("Inserire il numero corrispondente allo studente");
                 iStudente = sc.nextInt();
                 iStudente --;
@@ -106,13 +176,35 @@ public class Professori {
                     {
 
                         System.out.println("Inserisci un voto");
-                        voto = sc.nextDouble();
-                        admin.classe[i].italiano[admin.classe[i].votiItaliano] = voto;
-                        admin.classe[i].votiMatematica ++;
-                        admin.classe[i].calcolaMediaItaliano();
+                        voto = sc.nextFloat();
+                        admin.classe[i].sistemiReti[admin.classe[i].votiSistemiReti] = voto;
+                        admin.classe[i].votiSistemiReti ++;
+                        admin.classe[i].calcolaMediaSistemiReti();
                         admin.classe[i].calcolaStato();             
                     }
-                    i++;
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
+            case "TPSIT": 
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].TPSIT[admin.classe[i].votiTPSIT] = voto;
+                        admin.classe[i].votiTPSIT ++;
+                        admin.classe[i].calcolaMediaTPSIT();
+                        admin.classe[i].calcolaStato();             
+                    }
                 }
                 while(i<admin.getNStudenti() || i == iStudente);
                 if(admin.classe[iStudente] == null)
@@ -130,7 +222,7 @@ public class Professori {
                     {
 
                         System.out.println("Inserisci un voto");
-                        voto = sc.nextDouble();
+                        voto = sc.nextFloat();
                         admin.classe[i].informatica[admin.classe[i].votiInformatica] = voto;
                         admin.classe[i].votiInformatica ++;
                         admin.classe[i].calcolaMediaInformatica();
@@ -143,9 +235,52 @@ public class Professori {
                     System.out.println("Studente inesistente");
                 }
                 break;
+            case "Telecomunicazioni": 
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].telecomunicazioni[admin.classe[i].votiTelecomunicazioni] = voto;
+                        admin.classe[i].votiTelecomunicazioni ++;
+                        admin.classe[i].calcolaMediaTelecomunicazioni();
+                        admin.classe[i].calcolaStato();             
+                    }
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
+            case "Educazione Fisica": 
+                System.out.println("Inserire il numero corrispondente allo studente");
+                iStudente = sc.nextInt();
+                iStudente --;
+                do
+                {
+                    if(i == iStudente)
+                    {
+
+                        System.out.println("Inserisci un voto");
+                        voto = sc.nextFloat();
+                        admin.classe[i].edFisica[admin.classe[i].votiEdFisica] = voto;
+                        admin.classe[i].votiEdFisica ++;
+                        admin.classe[i].calcolaMediaEdFisica();
+                        admin.classe[i].calcolaStato();             
+                    }
+                }
+                while(i<admin.getNStudenti() || i == iStudente);
+                if(admin.classe[iStudente] == null)
+                {
+                    System.out.println("Studente inesistente");
+                }
+                break;
         }
-    }
-    public void eliminaVoto(Admin admin){
-        System.out.println("Presto disponibile");
     }
 }
