@@ -90,8 +90,8 @@ public class Admin implements java.io.Serializable{
             System.out.println("5 - Sistemi e Reti");
             System.out.println("6 - TPSIT");
             System.out.println("7 - Informatica");
-            System.out.println("1 - Telecomunicazioni");
-            System.out.println("1 - Educazione Fisica");
+            System.out.println("8 - Telecomunicazioni");
+            System.out.println("9 - Educazione Fisica");
             do
             {
                 op = sc.nextInt();
@@ -237,7 +237,6 @@ public class Admin implements java.io.Serializable{
     }
     public void salvaRegistro(Admin admin) throws java.io.IOException{
         ObjectOutputStream streamAdmin = new ObjectOutputStream(new FileOutputStream("admin.bin"));
-        int i;
         streamAdmin.writeObject(admin);
         streamAdmin.close();
     }
