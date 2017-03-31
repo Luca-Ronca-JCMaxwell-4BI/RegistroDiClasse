@@ -18,9 +18,22 @@ Per uscire dal registro premere 3, il registro procederà automaticamente al sal
 <b>1 - Professore:</b> inserire il nomeutente e la password forniti dall'admin, successivamente sarà possibile cambiare la password.</br>
 <b>2 - Studente:</b> inserire il nomeutente e la password forniti dall'admin, successivamente sarà possibile cambiare la password.</br>
 <b>Home:</b> dopo aver fatto l'accesso, qui verrà visualizzato un menù in cui è possibile scegliere delle opzioni.</br>
-<b>0 - Admin:</b>
-<b>1 - Professore:</b>
-<b>2 - Studente:</b>
+<b>0 - Admin:</b></br>
+0 - Cambia password: consente di cambiare la password;</br>
+1 - Aggiungi professore: consente di aggiungere un professore;</br>
+2 - Elimina professore: consente di eliminare un professore;</br>
+3 - Aggiungi studente: consente di aggiungere uno studente;</br>
+4 - Elimina studente: consente di eliminare uno studente;</br>
+5 - Esci: torna alla schermata di accesso;</br>
+<b>1 - Professore:</b></br>
+0 - Cambia password: consente di cambiare la password;</br>
+1 - Aggiungi voto: consente di aggiungere un voto nella materia del professore;</br>
+<b>2 - Studente:</b></br>
+0 - Cambia password: consente di cambiare la password;</br>
+1 - Visualizza voti: consente di visualizzare i voti di tutte le materie;</br>
+2 - Calcola media: consente di calcolare la media di tutte le materie;</br>
+3 - Calcola stato: consente di calcolare lo stato promosso o rischio bocciatura;</br>
+4 - Esci: torna alla schermata di accesso;</br>
 
 <b>Autori</b></br>
 Teodora Chirila</br>
