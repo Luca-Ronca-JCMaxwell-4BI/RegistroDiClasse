@@ -1,10 +1,12 @@
 package registroelettronico;
-import java.util.Scanner; /*Importa la classe Scanner la quale è nella cartella UTIL che è dentro la cartella JAVA.  
-                          Scanner : classe predefinita per prendere input dagli utenti*/
-public class Admin{
-    //Attributi della classe Admin
-    private String nomeUtente = "Admin";
-    private String password;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class Admin implements java.io.Serializable{
+    public String password;
     public final String tipoUtente = "Admin";
     public static final int N_STUDENTI = 24;
     public static final int N_PROF = 10;
@@ -19,7 +21,7 @@ public class Admin{
         prof = new Professori[N_PROF];
     }
     //Setter/Getter
-    public void setPassword(String p){
+    private void setPassword(String p){
         password = p;
     }
     public String getPassword(){
@@ -31,7 +33,7 @@ public class Admin{
     public int getNProfessori(){
         return N_PROF;
     }
-    //Metodi
+    //metodi
     public void cambiaPassword(){
         String p;
         Scanner sc = new Scanner(System.in);
@@ -81,23 +83,47 @@ public class Admin{
             System.out.println("Inserire la password del professore");
             pass = sc.next();
             System.out.println("Scegliere la materia del professore");
-            System.out.println("1 - Matematica");
-            System.out.println("2 - Italiano");
-            System.out.println("3 - Informatica");
+            System.out.println("1 - Italiano");
+            System.out.println("2 - Storia");
+            System.out.println("3 - Inglese");
+            System.out.println("4 - Matematica");
+            System.out.println("5 - Sistemi e Reti");
+            System.out.println("6 - TPSIT");
+            System.out.println("7 - Informatica");
+            System.out.println("1 - Telecomunicazioni");
+            System.out.println("1 - Educazione Fisica");
             do
             {
                 op = sc.nextInt();
                 switch(op)
                 {
                     case 1: 
-                        mat = "Matematica";
-                        break;
-                    case 2:
                         mat = "Italiano";
                         break;
-                    case 3:
+                    case 2: 
+                        mat = "Storia";
+                        break;
+                    case 3: 
+                        mat = "Inglese";
+                        break;    
+                    case 4:
+                        mat = "Matematica";
+                        break;
+                    case 5: 
+                        mat = "Sistemi e Reti";
+                        break;
+                    case 6: 
+                        mat = "TPSIT";
+                        break;    
+                    case 7:
                         mat = "Informatica";
                         break;
+                    case 8: 
+                        mat = "Telecomunicazioni";
+                        break;
+                    case 9: 
+                        mat = "Educazione Fisica";
+                        break;    
                     default:
                         System.out.println("Selezionare una materia");
                         break;    
@@ -166,7 +192,6 @@ public class Admin{
         if (trovato == true)
         {
             prof[pos] = null;
-            nProfessori --;
             for(i=pos; i<nProfessori-1; i++)
             {
                 for(j=i+1; j<nProfessori; j++)
@@ -174,6 +199,7 @@ public class Admin{
                     prof[i] = prof[j];
                 }
             }
+            nProfessori --;
             System.out.println("Professore eliminato");
         }
         else
@@ -196,5 +222,29 @@ public class Admin{
                 }
             }
         }
+    }
+    public void visClasse(){
+        for(int i=0; i<nStudenti; i++)
+        {
+            System.out.println("nome:" + classe[i].getNome());
+        }
+    }
+    public void visProf(){
+        for(int i=0; i<nProfessori; i++)
+        {
+            System.out.println("nome:" + prof[i].getNome());
+        }
+    }
+    public void salvaRegistro(Admin admin) throws java.io.IOException{
+        ObjectOutputStream streamAdmin = new ObjectOutputStream(new FileOutputStream("admin.bin"));
+        int i;
+        streamAdmin.writeObject(admin);
+        streamAdmin.close();
+    }
+    public Admin caricaRegistro(Admin admin) throws java.io.IOException, ClassNotFoundException{
+        ObjectInputStream streamAdmin = new ObjectInputStream(new FileInputStream("admin.bin"));
+        admin = (Admin) streamAdmin.readObject();
+        streamAdmin.close();
+        return admin;
     }
 }

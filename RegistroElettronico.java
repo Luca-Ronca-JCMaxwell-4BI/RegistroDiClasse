@@ -1,4 +1,5 @@
 package registroelettronico;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RegistroElettronico {
@@ -15,12 +16,17 @@ public class RegistroElettronico {
         return versione;
     }
     //Metodi
-    public void accesso(Admin admin){
-        int opa, i, t = 0;
+
+    public void accesso(Admin admin) throws IOException{
+        int opa, i, t;
+
         String nu, pw, nome, pass;
         Scanner sc = new Scanner(System.in);        
         do
         {
+
+            t = 0;
+
             System.out.println("-------------------------");
             System.out.println("Inserire il tipo dell'utente");
             System.out.println("0 - Admin");
@@ -80,6 +86,8 @@ public class RegistroElettronico {
                     }
                     break;
                 case 3:
+                    System.out.println("Salvataggio in corso ...");
+                    admin.salvaRegistro(admin);
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
@@ -125,6 +133,13 @@ public class RegistroElettronico {
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
+
+                case 6:
+                    admin.visClasse();
+                    break;
+                case 7:
+                    admin.visProf();
+                    break;
                 default:
                     System.out.println("Opzione non valida");
                     break;
@@ -156,6 +171,7 @@ public class RegistroElettronico {
                     admin.prof[pos].eliminaVoto(admin);
                     break;
                 case 3:
+
                     System.out.println("Uscita in corso ...");
                     System.out.println("-------------------------");
                     break;
@@ -189,6 +205,16 @@ public class RegistroElettronico {
                     break;
                 case 2:
                     double mediaTot = (admin.classe[pos].mediaMatematica + admin.classe[pos].mediaItaliano + admin.classe[pos].mediaInformatica) / 3;
+
+                    System.out.println("Media italiano: " + admin.classe[pos].calcolaMediaItaliano());
+                    System.out.println("Media storia: " + admin.classe[pos].calcolaMediaStoria());
+                    System.out.println("Media inglese: " + admin.classe[pos].calcolaMediaInglese());
+                    System.out.println("Media matematica: " + admin.classe[pos].calcolaMediaMatematica());
+                    System.out.println("Media sistemi e reti: " + admin.classe[pos].calcolaMediaSistemiReti());
+                    System.out.println("Media TPSIT: " + admin.classe[pos].calcolaMediaTPSIT());
+                    System.out.println("Media informatica: " + admin.classe[pos].calcolaMediaInformatica());
+                    System.out.println("Media telecomunicazioni: " + admin.classe[pos].calcolaMediaTelecomunicazioni());
+                    System.out.println("Media educazione fisica: " + admin.classe[pos].calcolaMediaEdFisica());
                     System.out.println("Media matematica: " + admin.classe[pos].calcolaMediaMatematica());
                     System.out.println("Media italiano: " + admin.classe[pos].calcolaMediaItaliano());
                     System.out.println("Media informatica: " + admin.classe[pos].calcolaMediaInformatica());
@@ -208,7 +234,7 @@ public class RegistroElettronico {
         }
         while(ophs != 4); 
     }
-
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
     public static void main(String[] args) {
         RegistroElettronico RE;
         Admin admin;
@@ -217,5 +243,8 @@ public class RegistroElettronico {
         Scanner sc = new Scanner(System.in);
         System.out.println("REGISTRO ELETTRONICO");
         System.out.println("ver " + RE.getVersione());
+        System.out.println("Caricamento in corso ...");
+        admin = admin.caricaRegistro(admin);
         RE.accesso(admin);
     }
+}
