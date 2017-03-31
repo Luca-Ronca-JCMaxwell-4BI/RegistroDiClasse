@@ -2,7 +2,7 @@
 <b>Descrizione programma</b></br>
 Il registro elettronico serve per visualizzare i voti e le medie di ogni singolo studente.</br>
 Ci sono tre tipologie di utenti:</br>
-gli <b>studenti</b> possono vedere solo i propri voti, le loro medie e lo stato (rischio bocciatura/promosso), i <b>professori</b> possono consultare le votazioni di tutta la classe per studente e per materia, possono vedere le medie di tutti gli studenti e il loro relativo stato ed inoltre possono togliere o aggiungere voti della loro materia, e l'<b>admin</b>.</br>
+gli <b>studenti</b> possono vedere solo i propri voti, le loro medie e lo stato (rischio bocciatura/promosso), i <b>professori</b> possono consultare le votazioni di tutta la classe per studente e per materia, possono vedere le medie di tutti gli studenti e il loro relativo stato ed inoltre possono togliere o aggiungere voti della loro materia, e l'<b>admin</b> che amministra il registro.</br>
 Ogni utente per accedere al registro elettronico ha bisogno di un account.</p>
 
 <b>Istruzioni di installazione</b></br>
@@ -44,4 +44,3 @@ Sara Sgreccia</br>
 
 <b>Ringraziamenti</b></br>
 Ringrazio a nome di tutto il gruppo il professore per il supporto che ci dà ad ogni lezione, e anche il nostro coordinatore che sopporta noi collaboratrici. Grazie anche a Gerry che ci ha spiegato l'input da tastiera.
-
