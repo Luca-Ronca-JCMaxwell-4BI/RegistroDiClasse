@@ -12,7 +12,7 @@ Il programma non necessita di installazione.
 Versione 1-2:</br>
 In tutti i menù ad ogni opzione è attribuito un numero, per selezionare una opzione è necessario premere il numero corrispondente alla opzione desiderata.</br>
 <b>Accesso:</b></br>
-Inserire il numero assegnato al tipo di utente con cui si vuole accedere: 0 - Admin; 1 - Professore; 3 - Studente.</br>
+Inserire il numero assegnato al tipo di utente con cui si vuole accedere: 0 - Admin; 1 - Professore; 2 - Studente.</br>
 Per uscire dal registro premere 3, il registro procederà automaticamente al salvataggio.</br>
 0 - Admin: inserire solamente la password.</br>
 1 - Professore: inserire il nomeutente e la password forniti dall'admin, successivamente sarà possibile cambiare la password.</br>
