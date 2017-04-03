@@ -65,7 +65,7 @@ public class Professori implements java.io.Serializable{
         }
     }
     public void aggiungiVoto(Admin admin){
-        int i = 0, iStudente;
+        int i = -1, iStudente;
         float voto;
         visualizzaRegistro(admin);
         Scanner sc = new Scanner(System.in);
@@ -77,6 +77,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -87,9 +88,9 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaMediaItaliano();
                         admin.classe[i].calcolaStato();             
                     }
-                    i++;
+                    
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -101,6 +102,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -111,9 +113,8 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaMediaStoria();
                         admin.classe[i].calcolaStato();             
                     }
-                    i++;
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -125,6 +126,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -135,9 +137,8 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaMediaInglese();
                         admin.classe[i].calcolaStato();             
                     }
-                    i++;
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -149,6 +150,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -160,7 +162,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();             
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -172,6 +174,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -183,7 +186,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();             
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -195,6 +198,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -206,7 +210,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();             
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -218,9 +222,9 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
-
                         System.out.println("Inserisci un voto");
                         voto = sc.nextFloat();
                         admin.classe[i].informatica[admin.classe[i].votiInformatica] = voto;
@@ -229,7 +233,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();            
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -241,9 +245,9 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
-
                         System.out.println("Inserisci un voto");
                         voto = sc.nextFloat();
                         admin.classe[i].telecomunicazioni[admin.classe[i].votiTelecomunicazioni] = voto;
@@ -252,7 +256,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();             
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
@@ -264,6 +268,7 @@ public class Professori implements java.io.Serializable{
                 iStudente --;
                 do
                 {
+                    i++;
                     if(i == iStudente)
                     {
 
@@ -275,7 +280,7 @@ public class Professori implements java.io.Serializable{
                         admin.classe[i].calcolaStato();             
                     }
                 }
-                while(i<admin.getNStudenti() || i == iStudente);
+                while(i<admin.getNStudenti() && i != iStudente);
                 if(admin.classe[iStudente] == null)
                 {
                     System.out.println("Studente inesistente");
