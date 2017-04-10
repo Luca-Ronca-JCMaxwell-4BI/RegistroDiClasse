@@ -235,7 +235,6 @@ public class RegistroElettronico {
         while(ophs != 4); 
     }
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-    public static void main(String[] args) {
         RegistroElettronico RE;
         Admin admin;
         RE = new RegistroElettronico("1.0");
